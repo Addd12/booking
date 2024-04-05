@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -15,15 +16,31 @@ class UserController extends Controller
 
     public function authenticate(Request $request)
     {
-        //
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password'=> 'required'
+        ]);
+        //dd($request->validate);
+        if(Auth::attempt($credentials))
+        {
+            $request->session()->regenerate();
+            return redirect('dashboard')->with('success','You are now logged in!');
+        }
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        request()->session()->invalidate();
+        return redirect('/')->with('success','You have logged out successfully!');
+    }
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('user.dashboard');
     }
 
     /**
