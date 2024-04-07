@@ -27,3 +27,5 @@ Route::get('/logout', [UserController::class,'logout'])->name('logout');
 Route::get('/buses', [BusController::class,'index'])->name('buses');
 Route::get('/addBus', [BusController::class, 'addBus'])->name('addBus');
 Route::post('/addBus', [BusController::class, 'store'])->name('addBus');
+Route::get('/editBus/{id}', [BusController::class,'edit'])->name('editBus');
+Route::post('/editBus/{id}', [BusController::class, 'update'])->name('editBus');

@@ -29,4 +29,20 @@ class BusController extends Controller
         ]);
         return redirect()->route('buses')->with('success','New bus added!');
     }
+
+    public function edit($id)
+    {
+        $bus = Bus::findOrFail($id);
+        return view('bus.edit', compact('bus'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        Bus::findOrFail($id)->update([
+            'brand'=> $request->brand,
+            'seats'=> $request->seats,
+            'available'=> $request->available,
+        ]);
+        return redirect()->route('buses')->with('success','Bus updated successfully!');
+    }
 }
