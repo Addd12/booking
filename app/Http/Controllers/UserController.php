@@ -92,7 +92,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        $users = User::all();
+        //dd($user);
+        return view('user.list', compact('users')); //the value users is the variable which stores the data from the db and it should be the same as the one used in the view
     }
 
     /**

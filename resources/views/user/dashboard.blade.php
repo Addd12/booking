@@ -13,6 +13,9 @@
         <a href="/addBus">Add bus</a>
     </li>
     <li>
+        <a href="/usersList">Users list</a>
+    </li>
+    <li>
         <a href="/logout">Logout</a>
     </li>
     <h1>This is the dashboard</h1>

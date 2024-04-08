@@ -23,6 +23,7 @@ Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login', [UserController::class, 'authenticate'])->name('login');
 Route::get('/dashboard', [UserController::class,'index'])->name('dashboard');
 Route::get('/logout', [UserController::class,'logout'])->name('logout');
+Route::get('/usersList', [UserController::class,'show'])->name('usersList');
 //Buses
 Route::get('/buses', [BusController::class,'index'])->name('buses');
 Route::get('/addBus', [BusController::class, 'addBus'])->name('addBus');
