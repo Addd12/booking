@@ -45,4 +45,10 @@ class BusController extends Controller
         ]);
         return redirect()->route('buses')->with('success','Bus updated successfully!');
     }
+
+    public function destroy($id)
+    {
+        Bus::findOrFail($id)->delete();
+        return redirect()->route('buses')->with('success','Bus deleted successfully!');
+    }
 }

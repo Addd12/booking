@@ -30,3 +30,4 @@ Route::get('/addBus', [BusController::class, 'addBus'])->name('addBus');
 Route::post('/addBus', [BusController::class, 'store'])->name('addBus');
 Route::get('/editBus/{id}', [BusController::class,'edit'])->name('editBus');
 Route::post('/editBus/{id}', [BusController::class, 'update'])->name('editBus');
+Route::delete('/delete/{id}', [BusController::class,'destroy'])->name('delete');
