@@ -3,14 +3,12 @@
 </head>
 <body class="font-sans antialiased dark:bg-black dark:text-white/50">
     <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
-        <img id="background" class="absolute -left-20 top-0 max-w-[877px]" src="https://laravel.com/assets/img/welcome/background.svg" />
-        <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-            <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                
-                <h1>Booking system</h1>
-            </div>
-        </div>
+        <h1 class="justify-center">Booking system</h1>
+        <p class="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus exercitationem tenetur deleniti voluptates repellat quaerat officiis, molestiae ab aut laudantium modi animi eos consequatur possimus libero consequuntur odit cum non?</p>
     </div>
+    <!-- <div id="intro" class="bg-image shadow-2-strong">
+        <h1 class="justify-center">Booking system</h1>
+    </div> -->
 </body>
 
 @include('layout.footer')
