@@ -21,10 +21,16 @@ class UserController extends Controller
             'password'=> 'required'
         ]);
         //dd($request->validate);
-        if(Auth::attempt($credentials))
+        // $remember stores a boolead value based on whether the Remember me button is checked or not
+        $remember = $request->has('remember');
+
+        if(Auth::attempt($credentials, $remember))
         {
             $request->session()->regenerate();
             return redirect('dashboard')->with('success','You are now logged in!');
+        }
+        else{
+            return redirect('login')->with('error','Invalid credentials.');
         }
     }
 
@@ -73,7 +79,7 @@ class UserController extends Controller
 
         $validatedData = $request->validate([
             'name'=>'required|string|max:50',
-            'email'=> 'required|email|max:255',
+            'email'=> 'required|email|max:255|unique:users',
             'password'=> 'required|min:3|max:15'
         ]);
 
