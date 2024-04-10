@@ -24,6 +24,8 @@ Route::post('/login', [UserController::class, 'authenticate'])->name('login');
 Route::get('/dashboard', [UserController::class,'index'])->name('dashboard');
 Route::get('/logout', [UserController::class,'logout'])->name('logout');
 Route::get('/usersList', [UserController::class,'show'])->name('usersList');
+Route::get('/editUser/{id}', [UserController::class,'edit'])->name('editUser');
+Route::post('/editUser/{id}', [UserController::class,'update'])->name('editUser');
 //Buses
 Route::get('/buses', [BusController::class,'index'])->name('buses');
 Route::get('/addBus', [BusController::class, 'addBus'])->name('addBus');

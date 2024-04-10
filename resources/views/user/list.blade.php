@@ -11,6 +11,8 @@
                     <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -18,6 +20,8 @@
                     <tr>
                         <th>{{$user->name}}</th>
                         <td>{{$user->email}}</td>
+                        <td>{{$user->type}}</td>
+                        <td><a href="{{route('editUser', ['id'=>$user->id] )}}"><i class="bi bi-pencil-square"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>
