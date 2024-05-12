@@ -4,6 +4,7 @@ use App\Http\Controllers\BusController;
 use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmailController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -48,3 +49,7 @@ Route::get('/payment/success', function () {
 Route::get('/payment/failure', function () {
     return view('payment.failure');
 })->name('payment.failure');
+
+//Email routes
+Route::get('/send-welcome-email', [EmailController::class, 'sendWelcomeEmail']);
+
