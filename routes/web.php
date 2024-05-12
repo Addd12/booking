@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BusController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -33,3 +34,17 @@ Route::post('/addBus', [BusController::class, 'store'])->name('addBus');
 Route::get('/editBus/{id}', [BusController::class,'edit'])->name('editBus');
 Route::post('/editBus/{id}', [BusController::class, 'update'])->name('editBus');
 Route::delete('/delete/{id}', [BusController::class,'destroy'])->name('delete');
+
+//Stripe routes
+Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
+Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('process.payment');
+//Route::get('/payment', 'PaymentController@showPaymentForm')->name('payment.form');
+//Route::post('/process-payment', 'PaymentController@processPayment')->name('process.payment');
+
+Route::get('/payment/success', function () {
+    return view('payment.success');
+})->name('payment.success');
+
+Route::get('/payment/failure', function () {
+    return view('payment.failure');
+})->name('payment.failure');

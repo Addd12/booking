@@ -13,6 +13,8 @@ return [
     |
     */
 
+    'stripeKey' => env('STRIPE_KEY'),
+
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
